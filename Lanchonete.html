@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanchonete</title>
+</head>
+<body>
+    <h1>Conta:</h1>
+    <style>
+        body{
+            color:yellow;
+            background-color:#2c2c2c;
+        }
+    </style>
+    <script>
+        var preço, lanchinho, categoria, conta, contaTxt, atualização, LUNCH = []
+        contaTxt = ""
+        conta = ""
+        preço = 0
+        atualização = 0
+
+        while(categoria != 0){
+            categoria = parseInt(prompt("MENU PRINCIPAL \n\n1- Lanches\n2- Bebida\n3- Conta\n0- SAIR"))
+
+            if(categoria == 1){
+                lanchinho = parseInt(prompt("MENU LANCHES \n\n1- X-Tudo: $10,00\n2- X-Egg: $9,00\n3- X-Salada: $8,00\n4- Bauru: $5,00 \n0- SAIR"))
+                
+                if(lanchinho == 1){
+                    LUNCH.push("X-Tudo: $10,00")
+                    preço = preço + 10
+                    atualização = 1
+                    
+                }
+                if(lanchinho == 2){
+                    LUNCH.push("X-Egg: $9,00")
+                    preço = preço + 9
+                    atualização = 1
+                }
+                if(lanchinho == 3){
+                    LUNCH.push("X-Salada: $8,00")
+                    preço = preço + 8
+                    atualização = 1
+                }
+                if(lanchinho == 4){
+                    LUNCH.push("Bauru: $5,00")
+                    preço = preço + 5
+                    atualização = 1
+                }
+            }
+            if(categoria == 2){
+                lanchinho = parseInt(prompt("MENU BEBIDAS \n\n1- Coca-Cola: $5,00\n2- Guaraná: $4,00\n3- Fanta: $4,00\n4- Tubaína: $3,00 \n0- SAIR"))
+                
+                if(lanchinho == 1){
+                    LUNCH.push("Coca-Cola: $5,00")
+                    preço = preço + 5
+                    atualização = 1
+                }
+                if(lanchinho == 2){
+                    LUNCH.push("Guaraná: $4,00")
+                    preço = preço + 4
+                    atualização = 1
+                }
+                if(lanchinho == 3){
+                    LUNCH.push("Fanta: $4,00")
+                    preço = preço + 4
+                    atualização = 1
+                }
+                if(lanchinho == 4){
+                    LUNCH.push("Tubaína $3,00")
+                    preço = preço + 3  
+                    atualização = 1 
+                }
+            }
+            if(atualização == 1){
+                contaTxt = ""
+                conta = ""
+                for(x = 0; x < LUNCH.length; x++){
+                    conta = conta + LUNCH[x] + "\n"
+                    contaTxt = contaTxt + LUNCH[x] + "<br>"
+                }
+                atualização = 0
+            }
+            if(categoria == 3){
+                alert(conta + "\nTotal: $" + preço + ",00")
+            }
+        }
+        if(preço == 0){
+            contaTxt = " - "
+        }
+        document.write(contaTxt + "<br><br>Total: $" + preço + ",00<br><br>")
+    </script>
+</body>
+</html>
